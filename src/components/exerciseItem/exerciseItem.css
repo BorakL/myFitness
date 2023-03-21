@@ -1,0 +1,36 @@
+.exerciseItem{
+    height: 300px; 
+    padding:10px;
+    margin:10px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+.exerciseItem>.exerciseItemImage{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+}
+.exerciseItem>.exerciseItemImage>a>img{
+    width: 100%;
+    height:150px;
+}
+
+.exerciseItem>.exerciseItemInfo{
+    display: flex;
+    flex-direction: row;
+    align-items:start;
+    justify-content: space-around;
+    position: absolute;
+    bottom:15px;
+    left:0;
+    right:0;
+}
+.exerciseItem>.exerciseItemInfo>.exerciseType{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

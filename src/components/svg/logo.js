@@ -1,4 +1,8 @@
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 700.000000 436.000000" preserveAspectRatio="xMidYMid meet">
+import React from "react";
+
+const Logo = ({color})=>{
+    return(
+        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 700.000000 436.000000" preserveAspectRatio="xMidYMid meet">
         <metadata>
         Created by potrace 1.12, written by Peter Selinger 2001-2015
         </metadata>
@@ -106,3 +110,7 @@
         73 -11 71 423 71 l387 0 0 100 0 100 -407 0 c-309 -1 -417 -4 -444 -14z"></path>
         </g>
         </svg>
+    )
+}
+
+export default Logo;
