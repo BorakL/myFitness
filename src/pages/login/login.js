@@ -73,6 +73,7 @@ const Login = ()=>{
                     navigate("/")
                 } 
             }catch(err){
+                setLoading(false)
                 if(!err?.response){
                     setErrors({serverError:'No Server Response'})      
                 }else if(err.response?.status===400){
@@ -91,7 +92,6 @@ const Login = ()=>{
             <form onSubmit={handleSubmit}>
                 <div className="logginWrapper">
                     <h1>Login</h1>
-                    {loading && <Loading/>}
                     {errors && errors.serverError &&
                     <div>
                         <span>{errors.serverError}</span>
@@ -131,6 +131,7 @@ const Login = ()=>{
                     </div>
                 </div> 
             </form> 
+            {loading && <Loading/>}
         </div> 
     )
 }

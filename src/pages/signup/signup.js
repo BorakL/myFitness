@@ -31,7 +31,6 @@ const Signup = ()=>{
         nameRef.current.focus()
     },[])
 
-
     const validate = (values)=>{
         let errors = {}
         if(!values.email){
@@ -87,6 +86,7 @@ const Signup = ()=>{
                     navigate("/userProfile")
                 } 
             }catch(err){
+                setLoading(false)
                 if(!err?.response){
                     setErrors({serverError:'No Server Response'})      
                 }else if(err?.response?.data?.message){
@@ -103,7 +103,6 @@ const Signup = ()=>{
             <form onSubmit={handleSubmit}>
                 <div className="logginWrapper">
                     <h1>Sign Up</h1>
-                    {loading && <Loading/>}
                     {errors && errors.serverError && 
                     <div>
                         <span>{errors.serverError}</span>
@@ -176,6 +175,7 @@ const Signup = ()=>{
                     </div>
                 </div>
             </form>
+            {loading && <Loading/>}
         </div>
     )
 }
