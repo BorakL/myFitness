@@ -1,5 +1,5 @@
-exports.apiURL = "http://127.0.0.1:3001"
-// exports.apiURL = ""
+// exports.apiURL = "http://127.0.0.1:3001"
+exports.apiURL = ""
 
 exports.goalOptions = [
     {value:"Build Muscle", name:"Build Muscle"},
