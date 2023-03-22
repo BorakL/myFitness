@@ -93,7 +93,7 @@ const Login = ()=>{
                 <div className="logginWrapper">
                     <h1>Login</h1>
                     {errors && errors.serverError &&
-                    <div>
+                    <div className="errMsg">
                         <span>{errors.serverError}</span>
                     </div>
                     }

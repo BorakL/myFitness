@@ -29,6 +29,7 @@ const ExploreWorkout = ({scrollParentRef})=>{
             });
             setWorkouts(prev=>[...prev, ...workoutsData.data.data])
             setCurrentFilters(workoutsData.data.stats)
+            setInitialLoading(false)
             if(offset===0){setTotal(workoutsData.data.total)}
         }catch(error){
             console.log("error",error)
