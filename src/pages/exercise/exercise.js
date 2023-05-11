@@ -18,7 +18,6 @@ const Exercise = ()=>{
                 service:"exercises",
                 id:id
             }) 
-            console.log("exercise",exercise)
             setExercise(exercise.data.doc)
         }catch(error){
             console.log("error",error)

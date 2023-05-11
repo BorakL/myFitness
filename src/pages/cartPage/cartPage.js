@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CartContext from "../../context/cartContext";
 import QtySelector from "../../components/qtySelector/qtySelector";
 import "./cartPage.css"
@@ -73,12 +73,12 @@ const CartPage = ()=>{
                     )}
                 </div>
                 <div>Total: {cart.totalItems}</div>
-                <div>Total for payment: {cart.totalForPayment} €</div>
+                <div>Total for payment: {cart.totalForPayment ? cart.totalForPayment.toFixed(2) : 0} €</div>
                 <div className="orderButton">
-                        <button className="mainButton" onClick={
-                        ()=>navigate(isAuthenticated() ? "/shipping" : "/login")}>
-                        {isAuthenticated() ? "Order" : "Login"} 
-                        </button>
+                    <button className="mainButton" onClick={
+                    ()=>navigate(isAuthenticated() ? "/shipping" : "/login")}>
+                    {isAuthenticated() ? "Order" : "Login"} 
+                    </button>
                 </div>
             </div> 
         </section>   
