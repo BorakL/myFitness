@@ -17,6 +17,10 @@ import Signup from './pages/signup/signup';
 import UserProfile from './pages/userProfile/userProfile';
 import { RequireAuth } from 'react-auth-kit';
 import About from './pages/about/about';
+import ExploreSupplement from './pages/exploreSupplement/exploreSupplement';
+import Supplement from './pages/supplement/supplement';
+import CartPage from './pages/cartPage/cartPage'; 
+import Shipping from './pages/shipping/shipping';
 
 function AppComponent() {
   const { pathname } = useLocation();
@@ -38,10 +42,19 @@ function AppComponent() {
                 <Route exact path="/workouts/:id" element={<Workout/>} />
                 <Route exact path="/workouts" element={<ExploreWorkout scrollParentRef={scrollParentRef}/>} />
                 <Route exact path="/trainingPlans/:id" element={<TrainingPlan/>} />
-                <Route exact path="/trainingPlans" element={<ExploreTrainingPlan/>} />
+                <Route exact path="/trainingPlans" element={<ExploreTrainingPlan />} />
+                <Route exact path="/supplements" element={<ExploreSupplement scrollParentRef={scrollParentRef}/>}/>
+                <Route exact path="/supplements/:id" element={<Supplement/>}/>
                 <Route exact path="/about" element={<About/>}/>
+                <Route exact path="/cart" element={<CartPage/>}/>
                 <Route exact path="/login" element={<Login/>} />
                 <Route exact path="/signup" element={<Signup/>} />
+                {/* <Route exact path="/shipping" element={
+                  <RequireAuth loginPath='/login'>
+                    <MakingOrder/>
+                  </RequireAuth>
+                }/> */}
+                <Route exact path="/shipping" element={<Shipping/>}/>
                 <Route exact path="/userProfile" element={
                   <RequireAuth loginPath='/login'>
                     <UserProfile/>

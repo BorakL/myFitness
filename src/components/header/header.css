@@ -35,10 +35,7 @@ header{
 }
 .innerHeader>nav>ul>li.activeLink>a{
     text-decoration: underline;
-} 
-.innerHeader>nav>ul>li.navIcon {
-    font-size: 1.5em;
-}
+}  
 .innerHeader>nav>ul>li{
     padding:5px;
     margin-left: 10px;
@@ -48,6 +45,27 @@ header{
     transition: 0.3s;
 }
  
+
+.fixedNav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    color: white;
+    font-size: 1.5em;
+} 
+.fixedNav>.cartIcon{
+    position: relative;
+    margin-right: 10px;
+}
+.fixedNav>.cartIcon span{
+    padding:1px 4px;
+    background-color: red;
+    border-radius: 10px;
+    text-align: center; 
+    font-size: 10px; 
+    position: absolute
+} 
 
 .hamburgerIcon{
     margin: auto 0;
@@ -62,6 +80,7 @@ header{
     margin: 6px 0;
     transition: 0.4s;
 } 
+
 
 @media only screen and (max-width:600px){ 
     .hamburgerIcon{

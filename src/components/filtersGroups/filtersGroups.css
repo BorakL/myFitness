@@ -14,7 +14,7 @@
         display: block;
     }
     .hideFilters{
-        height:0;
+        display: none;
         overflow: hidden;
     }
 }

@@ -1,21 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import ExerciseItemWorkout from "../../components/exerciseItemWorkout/exerciseItemWorkout"; 
-import ReviewForm from "../../components/reviewForm/ReviewForm";
-import ReviewItem from "../../components/reviewItem/reviewItem";
 import { create, getOne } from "../../services";
-import dateFormat, { masks } from "dateformat";
+import dateFormat from "dateformat";
 import "./workout.css";
 import { apiURL } from "../../definitions";
+import Reviews from "../../components/reviews/reviews";
 
 const Workout = ()=>{
     const params = useParams();
     const id = params.id
+    const navigate = useNavigate();
     const[workout,setWorkout] = useState({})
 
     const loadWorkout = async()=>{
-        const workoutData = await getOne({service:"workouts",id}) 
-        setWorkout(workoutData.data.doc) 
+        try{
+            const workoutData = await getOne({
+                service:"workouts",
+                id
+            }) 
+            setWorkout(workoutData.data.doc)
+        }catch(error){ 
+            console.log("error",error)
+            navigate("/notFound")
+        }
     }
     
     const getEquipments = (exercises=[])=>{
@@ -109,16 +117,12 @@ const Workout = ()=>{
                 </div>
             </section>
             <section>
-                <div className="workoutReviews">
-                    <h2>Reviews ({workout && workout.ratingsQuantity ? workout.ratingsQuantity : 0})</h2> 
-                    <ReviewForm 
-                        ratingsAverage={workout && workout.ratingsAverage ? workout.ratingsAverage : 0} 
-                        postReview={postReview}
-                    />
-                    <div className="workoutReviewsContainer">
-                        {workout && workout.reviews && workout.reviews.map((r,i)=><ReviewItem key={i} review={r}/>)}
-                    </div> 
-                </div>
+                <Reviews
+                    ratingsAverage={workout.ratingsAverage || 0}
+                    ratingsQuantity={workout.ratingsQuantity || 0}
+                    reviews={workout.reviews || []}
+                    postReview={postReview}
+                />
             </section>
             
         </div>

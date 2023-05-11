@@ -1,0 +1,38 @@
+.backdrop{
+    height: 100vh;
+    width: 100vw;
+    background-color:rgba(146, 146, 148, 0.468);
+    position: fixed;
+    top:0;
+    left:0; 
+}
+
+.modal{
+    max-width: 500px;
+    height: 300px;
+    min-width: 250px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.contentModal{  
+    margin-top: 50px; 
+    text-align: center;
+}
+
+.contentModal img{
+    max-width:20%;
+    min-width: 100px;
+    margin-bottom:30px;
+}
+
+.closeModalButton{
+    position: absolute;
+    top:10px;
+    right:20px;
+    font-size: 1.8em;
+    cursor: pointer;
+}

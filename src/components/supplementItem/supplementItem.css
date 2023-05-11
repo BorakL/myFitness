@@ -1,0 +1,35 @@
+.supplementItem{
+    height:auto; 
+    flex-direction: column;
+    background-color: white;
+    padding: 10px; 
+    flex-direction: column;
+}
+
+.supplementItem>.image{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+} 
+.supplementItem>.image>a>img{
+    width: 80%; 
+}
+.supplementItem>.image>a>img:hover{
+    opacity: 0.75;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.supplementItem>.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 110px;
+    padding-bottom: 10px;
+    font-size: 1.1em;
+    overflow: hidden;
+    font-weight: 600;
+}
+.supplementItem>.info>.price{
+    font-size: 1.2em;
+    padding-left: 5px;
+}

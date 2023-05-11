@@ -101,7 +101,7 @@ const Signup = ()=>{
     return(
         <div className="mainWrapper">
             <form onSubmit={handleSubmit}>
-                <div className="logginWrapper">
+                <div className="formWrapper">
                     <h1>Sign Up</h1>
                     {errors && errors.serverError && 
                     <div className="errMsg">

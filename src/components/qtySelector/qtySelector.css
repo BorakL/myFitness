@@ -1,0 +1,37 @@
+.qtySelector{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center
+}
+
+.inCart{
+    display: flex;
+    flex-direction: row; 
+    align-items: baseline;
+    justify-content: center;
+}
+.selectControlls>button, .selectControlls>span{
+    display: inline-block;
+    text-align: center;
+    width: 40px;
+    height: 40px; 
+    font-size: 1.3em;
+} 
+.selectControlls>button{
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(190, 190, 190);
+    color: white;
+}
+.selectControlls button:hover{
+    background-color: rgb(170,170,170);
+}
+.qtySelector>.total{
+    margin-left: 30px;
+}
+
+.qtySelector>.qtySelectorButton>button {
+    margin-top: 10px;
+    padding: 10px 35px;
+}

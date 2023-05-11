@@ -9,7 +9,9 @@ const InputField = ({
         className,
         required,
         inputRef,
-        errorMsg
+        errorMsg,
+        maxLength,
+        size
     })=>{ 
 
     return(
@@ -23,6 +25,8 @@ const InputField = ({
                 className={className}
                 required={required}
                 ref={inputRef}
+                maxLength={maxLength}
+                size={size}
             />
             <span className="errorMsg">
                 {errorMsg}

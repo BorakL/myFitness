@@ -5,6 +5,7 @@ import AppComponent from './AppComponent';
 import reportWebVitals from './reportWebVitals'; 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { AuthProvider } from 'react-auth-kit';
+import {CartProvider} from './context/cartContext'
 
 const App = ()=>{
     return (
@@ -14,9 +15,11 @@ const App = ()=>{
             cookieDomain={window.location.hostname}
             cookieSecure={false}
         >
-            <Router>
-                <AppComponent/>
-            </Router>
+            <CartProvider>
+                <Router>
+                    <AppComponent/>
+                </Router>
+            </CartProvider>
         </AuthProvider>
         
     )

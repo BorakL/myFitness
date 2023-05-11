@@ -90,7 +90,7 @@ const Login = ()=>{
     return(
         <div className="mainWrapper"> 
             <form onSubmit={handleSubmit}>
-                <div className="logginWrapper">
+                <div className="formWrapper">
                     <h1>Login</h1>
                     {errors && errors.serverError &&
                     <div className="errMsg">

@@ -6,8 +6,7 @@
     padding: 10px;
 }
 .workoutItem>.image>a>img{
-    width: 100%;
-    height: 250px;
+    width: 100%; 
 }
 .workoutItem>.description{
     height: 110px;

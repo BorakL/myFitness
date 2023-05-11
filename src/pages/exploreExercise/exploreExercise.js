@@ -111,20 +111,20 @@ const ExploreExercise = ({scrollParentRef})=>{
                 </div>
                 <div className="exploreContainer exploreExerciseContainer">
                     {  
-                            exercises.length>0 ? 
-                                <InfiniteScroll
-                                    pageStart={0}
-                                    loadMore={()=>loadExercises(exercises.length)}
-                                    hasMore={total>exercises.length}
-                                    loader={<div key={exercises.length}>...loading/</div>}   
-                                    useWindow={false}
-                                    threshold={250}  
-                                    getScrollParent={()=>scrollParentRef.current}
-                                >
-                                    {exercises.map(e=><ExerciseItem key={e.name} exercise={e}/>)} 
-                                </InfiniteScroll>   
-                                : 
-                                initialLoading ? <Loading/> : <p>No Exercises Found</p>
+                        exercises.length>0 ? 
+                            <InfiniteScroll
+                                pageStart={0}
+                                loadMore={()=>loadExercises(exercises.length)}
+                                hasMore={total>exercises.length}
+                                loader={<div key={exercises.length}>...loading/</div>}   
+                                useWindow={false}
+                                threshold={250}  
+                                getScrollParent={()=>scrollParentRef.current}
+                            >
+                                {exercises.map(e=><ExerciseItem key={e.name} exercise={e}/>)} 
+                            </InfiniteScroll>   
+                            : 
+                            initialLoading ? <Loading/> : <p>No Exercises Found</p>
                     }
                 </div> 
             </div> 

@@ -7,7 +7,8 @@ const InputSelect = ({
     inputRef,
     placeholder,
     required,
-    className
+    className,
+    errorMsg
 })=>{
     return(
         <div className="inputField">
@@ -29,7 +30,10 @@ const InputSelect = ({
                         {o.name}
                     </option>    
                 )}
-            </select>        
+            </select>
+            <span className="errorMsg">
+                {errorMsg}
+            </span>
         </div>
     )
 }

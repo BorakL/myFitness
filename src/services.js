@@ -3,26 +3,26 @@ import { apiURL } from './definitions';
 
 axios.defaults.baseURL = `${apiURL}/api/v1/`;
 
-export const getOne = function ({service,id,options}){
+export const getOne = function ({service,id,headers,options}){
   return axios({
     method:'GET',
     url:`${service}/${id}`,
+    headers: {'Authorization':headers},
     ...options
   })
 }
 
-export const getAll = function({service,query,options}){
+export const getAll = function({service,query,headers,options}){
     return axios({
         method:"GET",
         url:service,
         params:query,
+        headers: {'Authorization':headers},
         ...options
     })
 }
 
 export const create = function({service,url,id,data,headers,options}){
-    console.log("headers",headers)
-    //TREBA DODATI HEADERS SA ONIM TOKENOM
     // axios.defaults.headers.common = {'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTUwOTMzNTY1NDkwMGYyOGY3YzZlMCIsImlhdCI6MTY3NTk2MDk1MSwiZXhwIjoxNjgzNzM2OTUxfQ.yLkeAIM5-XrIQf3m3FeT2QYEDOA5k8seTosX8GzzVU0`}
     let u = url && id ? `${url}/${id}/${service}` : service;
     return axios({
