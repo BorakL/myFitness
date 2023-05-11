@@ -48,7 +48,7 @@ export const CartProvider = ({children}) => {
     }
 
     useEffect(()=>{
-        if(Object.values(JSON.parse(localStorage.getItem("cart"))).length ) { 
+        if(Object.values(JSON.parse(localStorage.getItem("cart")) || {}).length ) { 
             loadCartItems()
         }else{
             setLoadingCart(false)
