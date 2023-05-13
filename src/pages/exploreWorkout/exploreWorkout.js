@@ -15,6 +15,7 @@ const ExploreWorkout = ({scrollParentRef})=>{
     const[total,setTotal] = useState(0);
     const[name,setName] = useState("");
     const[initialLoading,setInitialLoading] = useState(true);
+    const[loading,setLoading] = useState(false);
     const timeoutRef = useRef(null);
     const inputRef = useRef(null);
 
@@ -30,6 +31,7 @@ const ExploreWorkout = ({scrollParentRef})=>{
             setWorkouts(prev=>[...prev, ...workoutsData.data.data])
             setCurrentFilters(workoutsData.data.stats)
             setInitialLoading(false)
+            setLoading(false)
             if(offset===0){setTotal(workoutsData.data.total)}
         }catch(error){
             console.log("error",error)
@@ -76,14 +78,17 @@ const ExploreWorkout = ({scrollParentRef})=>{
     }
 
     useEffect(()=>{
-        loadWorkouts(); 
+        if(!loading){
+            setLoading(true)
+            loadWorkouts();
+        }
     },[query])
 
     return(
         <div className="mainWrapper">
             <div className="exploreHeader">
                 <div className="exploreTitle">
-                    <h1>Explore Workouts</h1>
+                    <h1>Workouts</h1>
                 </div>
                 <div className="searchBar">
                     <Search 
@@ -105,6 +110,7 @@ const ExploreWorkout = ({scrollParentRef})=>{
                         setTotal={setTotal}
                         setItems={setWorkouts} 
                         scrollParentRef={scrollParentRef}
+                        loading={loading}
                     />
                 </div>
                 <div className="exploreContainer exploreWorkoutContainer">
@@ -130,7 +136,7 @@ const ExploreWorkout = ({scrollParentRef})=>{
                     }
                     </InfiniteScroll>
                     :
-                    initialLoading ? <Loading/> : <p>No Workouts Found</p>
+                    initialLoading || loading ? <Loading/> : <p>No Workouts Found</p>
                     }
                     
                 </div>

@@ -24,6 +24,13 @@ exports.paymentMethods = [
     {value: "Cash on delivery", name: "Cash on delivery"}
 ]
 
+exports.sortSupplementsOptions = [
+    {value: "name", name: "Name ASC"},
+    {value: "-name", name: "Name DESC"},
+    {value: "price", name: "Price ASC"},
+    {value: "-price", name: "Price DESC"}
+]
+
 exports.countries = [ 
     {"name": "Afghanistan", "value": "AF"}, 
     {"name": "land Islands", "value": "AX"}, 

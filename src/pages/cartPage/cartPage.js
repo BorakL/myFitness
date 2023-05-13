@@ -61,7 +61,7 @@ const CartPage = ()=>{
                                 />  
                                 <div>
                                     <div className="mobileScreen">Total</div>
-                                    {c.item.price*c.quantity}€
+                                    {(c.item.price*c.quantity).toFixed(2)}€
                                 </div> 
                             </div>
                             <div 

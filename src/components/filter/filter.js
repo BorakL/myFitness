@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import textFormating from "../../utilies";
 import "./filter.css";
 
-const Filter = ({ query, filter, filterGroup, changeFilter})=>{
+const Filter = ({ query, filter, filterGroup, changeFilter, loading})=>{
 
     const isChecked = query && query[filterGroup] && query[filterGroup].split("+").find(f=>f===filter._id)  
     return( 
-        <div className="filterItem" onClick={()=>changeFilter(filter,filterGroup)}> 
+        <div className="filterItem" onClick={()=>!loading ? changeFilter(filter,filterGroup) : null}> 
             <div className="filterName">
                 <div className={`checkBox ${isChecked ? "checked" : ""}`}></div> 
                 {textFormating(filter._id)}

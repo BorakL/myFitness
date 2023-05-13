@@ -15,9 +15,9 @@ const ExploreExercise = ({scrollParentRef})=>{
     const[total,setTotal] = useState(0)  
     const[name,setName] = useState("")
     const[initialLoading,setInitialLoading] = useState(true)
+    const[loading,setLoading] = useState(false)
     const timeoutId = useRef()
     const inputRef = useRef()
- 
 
     const loadExercises = async (offset=0)=>{ 
         try{
@@ -32,6 +32,7 @@ const ExploreExercise = ({scrollParentRef})=>{
             if(offset===0)setTotal(exercisesData.data.total) 
             setCurrentFilters(exercisesData.data.stats)
             setInitialLoading(false)
+            setLoading(false)
         }catch(error){
             console.log("error",error)    
         } 
@@ -77,7 +78,10 @@ const ExploreExercise = ({scrollParentRef})=>{
     }
 
     useEffect(()=>{ 
-        loadExercises()   
+        if(!loading){
+            setLoading(true)
+            loadExercises()
+        }
     },[query])
 
  
@@ -85,7 +89,7 @@ const ExploreExercise = ({scrollParentRef})=>{
         <div className="mainWrapper">
             <div className="exploreHeader">
                 <div className="exploreTitle">
-                    <h1>Explore Exercise</h1>
+                    <h1>Exercises</h1>
                 </div>
                 <div className="searchBar">
                     <Search
@@ -107,6 +111,7 @@ const ExploreExercise = ({scrollParentRef})=>{
                         setTotal={setTotal}
                         setItems={setExercises} 
                         scrollParentRef={scrollParentRef}
+                        loading={loading}
                     />
                 </div>
                 <div className="exploreContainer exploreExerciseContainer">
@@ -114,9 +119,9 @@ const ExploreExercise = ({scrollParentRef})=>{
                         exercises.length>0 ? 
                             <InfiniteScroll
                                 pageStart={0}
-                                loadMore={()=>loadExercises(exercises.length)}
+                                loadMore={()=> loadExercises(exercises.length) }
                                 hasMore={total>exercises.length}
-                                loader={<div key={exercises.length}>...loading/</div>}   
+                                loader={<div key={exercises.length}>...loading</div>}   
                                 useWindow={false}
                                 threshold={250}  
                                 getScrollParent={()=>scrollParentRef.current}
@@ -124,7 +129,7 @@ const ExploreExercise = ({scrollParentRef})=>{
                                 {exercises.map(e=><ExerciseItem key={e.name} exercise={e}/>)} 
                             </InfiniteScroll>   
                             : 
-                            initialLoading ? <Loading/> : <p>No Exercises Found</p>
+                            initialLoading || loading ? <Loading/> : <p>No Exercises Found</p>
                     }
                 </div> 
             </div> 

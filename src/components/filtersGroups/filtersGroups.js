@@ -6,7 +6,7 @@ import {SlArrowUp} from "react-icons/sl"
 import {SlArrowDown} from "react-icons/sl"
 import "./filtersGroups.css"
 
-const FiltersGroups = ({currentFilters, setQuery, query, setTotal, setItems, scrollParentRef})=>{
+const FiltersGroups = ({currentFilters, setQuery, query, setTotal, setItems, scrollParentRef, loading})=>{
     const[hiddenFilters,setHiddenFilters]=useState({})   
 
     useEffect(()=>{
@@ -63,6 +63,7 @@ const FiltersGroups = ({currentFilters, setQuery, query, setTotal, setItems, scr
                                     setQuery={setQuery}
                                     setTotal={setTotal}
                                     setItems={setItems}
+                                    loading={loading}
                                 /> )
                     }
                     </div>

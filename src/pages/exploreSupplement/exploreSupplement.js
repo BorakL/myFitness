@@ -7,6 +7,8 @@ import Search from "../../components/search/search"
 import Loading from "../../components/loading/loading"
 import SupplementItem from "../../components/supplementItem/supplementItem"
 import "./exploreSupplement.css"
+import InputSelect from "../../components/inputSelect/inputSelect"
+import { sortSupplementsOptions } from "../../definitions"
 
 const ExploreSupplement = ({scrollParentRef})=>{
     const[supplements,setSupplements]=useState([])
@@ -14,6 +16,7 @@ const ExploreSupplement = ({scrollParentRef})=>{
     const[currentFilters,setCurrentFilters]=useState({})
     const[total,setTotal]=useState(0)
     const[initialLoading,setInitialLoading]=useState(true)
+    const[loading,setLoading]=useState(false)
     const timeoutRef = useRef();
     const inputRef = useRef(null);
     const[name,setName] = useState("")
@@ -30,6 +33,7 @@ const ExploreSupplement = ({scrollParentRef})=>{
             setSupplements(prev=>[...prev,...supplementsData.data.data])
             setCurrentFilters(supplementsData.data.stats)
             setInitialLoading(false)
+            setLoading(false)
             if(offset===0){setTotal(supplementsData.data.total)}
         }catch(error){
             console.log("error",error)
@@ -75,15 +79,24 @@ const ExploreSupplement = ({scrollParentRef})=>{
         }
     }
 
+    const sortSupplements = (e)=>{
+        setSupplements([]);
+        setTotal(0)
+        setQuery( {...query, sort: e.target.value} )
+    }
+
     useEffect(()=>{
-        loadSupplements();
+        if(!loading){
+            setLoading(true)
+            loadSupplements();
+        }
     },[query])
 
     return(
         <div className="mainWrapper">
             <div className="exploreHeader">
                 <div className="exploreTitle">
-                    <h1>Explore Supplements</h1>
+                    <h1>Supplements</h1>
                 </div>
                 <div className="searchBar">
                     <Search
@@ -98,6 +111,13 @@ const ExploreSupplement = ({scrollParentRef})=>{
             </div>
             <div className="exploreMain">
                 <div className="sidebar">
+                    <InputSelect
+                        name="supplements"
+                        options={sortSupplementsOptions}
+                        handleChange={sortSupplements} 
+                        placeholder="Sort By"
+                        required={true}
+                    />
                     <FiltersGroups
                         currentFilters={currentFilters}
                         query={query}
@@ -105,6 +125,7 @@ const ExploreSupplement = ({scrollParentRef})=>{
                         setTotal={setTotal}
                         setItems={setSupplements}
                         scrollParentRef={scrollParentRef}
+                        loading={loading}
                     />
                 </div>
                 <div className="exploreContainer exploreSupplementContainer">
@@ -121,7 +142,7 @@ const ExploreSupplement = ({scrollParentRef})=>{
                         {supplements.map(s=><SupplementItem key={s.name} supplement={s}/>)}
                     </InfiniteScroll>
                     :   
-                    initialLoading ? <Loading/> : <p>No Supplements Found</p>
+                    initialLoading || loading ? <Loading/> : <p>No Supplements Found</p>
                 } 
                 </div>
             </div>
