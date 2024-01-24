@@ -69,7 +69,7 @@ app.use(
 
 // Serving static files 
 app.use(express.urlencoded({extended:true})) 
-app.use(express.static(path.join(__dirname,'..','client','build'))); 
+app.use(express.static(path.join(__dirname,'build'))); 
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Test middleware
@@ -91,7 +91,7 @@ app.use('/api/v1/supplementReviews', reviewSupplementRouter)
  
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname,'..','client','build','index.html'))
+  res.sendFile(path.join(__dirname,'build','index.html'))
 })
 
 app.use(globalErrorHandler);
