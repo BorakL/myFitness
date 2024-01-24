@@ -1,5 +1,5 @@
 // export const apiURL = "http://127.0.0.1:3001"
-export const apiURL = "http://lbfitness.cyclic.app"
+export const apiURL = "https://lbfitness.cyclic.app"
 
 export const goalOptions = [
     {value:"Build Muscle", name:"Build Muscle"},
