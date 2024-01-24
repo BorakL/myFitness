@@ -11,7 +11,7 @@ const Footer = ()=>{
             <section>
                 <div className="about">
                     <h2>About Company</h2>
-                    <p>My Fitness is a comprehensive fitness application designed to help you achieve your health and fitness goals. Our certified trainers and nutritionists provide a wide range of workouts and exercises tailored to your individual needs. Sign up today and start your journey towards a healthier, happier you!</p>
+                    <p>LBFitness is a comprehensive fitness application designed to help you achieve your health and fitness goals. Our certified trainers and nutritionists provide a wide range of workouts and exercises tailored to your individual needs. Sign up today and start your journey towards a healthier, happier you!</p>
                 </div>
                 <div className="socialNetworks">
                     <h2>Keep Connected</h2>
@@ -27,7 +27,7 @@ const Footer = ()=>{
                 </div>
             </section>
             <section>
-            © Copyright FitnessApp. All Right Reserved.<br/>Powered by Luka Borak
+            © Copyright LBFitnessApp. All Right Reserved.<br/>Powered by Luka Borak
             </section>
             
         </footer>
