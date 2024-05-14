@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { apiURL } from '../../definitions';
 import textFormating from '../../utilies';
 import './exerciseItemWorkout.css';
 
@@ -10,7 +9,7 @@ const ExerciseItemWorkout = ({exercise,index})=>{
             <div className="wrapper">
                 <div className="image">
                     <Link to={`/exercises/${exercise.exercise._id}`}>
-                        <img src={`${apiURL}/img/exercises/${exercise.exercise._id}.png`}/>
+                        <img src={`${process.env.REACT_APP_APIURL}/img/exercises/${exercise.exercise._id}.png`}/>
                     </Link>                
                 </div>
                 <div className="setsReps">

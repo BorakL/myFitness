@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import CartContext from "../../context/cartContext";
 import QtySelector from "../../components/qtySelector/qtySelector";
 import "./cartPage.css"
-import { apiURL } from "../../definitions";
 import { Link, useNavigate } from "react-router-dom";
 import {GrClose, GrCart} from "react-icons/gr";
 import { useIsAuthenticated } from "react-auth-kit";
@@ -42,7 +41,7 @@ const CartPage = ()=>{
                             <Link to={`/supplements/${c.item._id}`}>
                                 <div className="checkoutTitle">
                                     <div className="checkoutImg">
-                                        <img src={`${apiURL}/img/supplements/${c.item._id}.jpg`}/>
+                                        <img src={`${process.env.REACT_APP_APIURL}/img/supplements/${c.item._id}.jpg`}/>
                                     </div>
                                 <div>{c.item.name}</div>                                
                                 </div>

@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "react-router-dom";
-import { apiURL } from "../../definitions";
 import "./workoutItem.css"
 
 const WorkoutItem = ({id,muscleGroups,shortDescription,ratingsAverage,ratingsQuantity})=>{
@@ -10,7 +9,7 @@ const WorkoutItem = ({id,muscleGroups,shortDescription,ratingsAverage,ratingsQua
         <div className="workoutItem">
             <div className="image">
                 <Link to={`/workouts/${id}`}>
-                    <img src={`${apiURL}/img/workouts/${id}.jpg`}/>
+                    <img src={`${process.env.REACT_APP_APIURL}/img/workouts/${id}.jpg`}/>
                 </Link>            
             </div>
             <div className="name"> 

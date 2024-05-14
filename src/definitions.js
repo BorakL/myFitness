@@ -1,6 +1,3 @@
-exports.apiURL = "https://my-fitness-api.vercel.app/"
-// exports.apiURL = ""
-
 export const goalOptions = [
     {value:"Build Muscle", name:"Build Muscle"},
     {value:"Burn Fat", name:"Burn Fat"},

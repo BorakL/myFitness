@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { create, getOne } from "../../services";
-import { apiURL } from "../../definitions";
 import "./supplement.css"
 import CartContext from "../../context/cartContext";
 import QtySelector from "../../components/qtySelector/qtySelector"; 
@@ -63,7 +62,7 @@ const Supplement = ()=>{
                             </div>
                         </div> 
                         <div className="supplementImageWrapper">
-                            <img src={`${apiURL}/img/supplements/${id}.jpg`}/>
+                            <img src={`${process.env.REACT_APP_APIURL}/img/supplements/${id}.jpg`}/>
                         </div>                     
                     </div>
                     <div className="supplementInfo">

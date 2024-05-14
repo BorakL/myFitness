@@ -4,7 +4,7 @@ import { getAll, getOne } from "../../services";
 import textFormating from "../../utilies";
 import {v4 as uuidv4} from "uuid"
 import "./exercise.css"
-import { apiURL } from "../../definitions";
+import { process.env.REACT_APP_APIURL } from "../../definitions";
 
 const Exercise = ()=>{
     const[exercise,setExercise] = useState({});
@@ -45,7 +45,7 @@ const Exercise = ()=>{
             <section>
                 <div className="exerciseMainContainer">
                     <div className="exerciseImg">
-                        <img src={`${apiURL}/img/exercises/${id}.png`}/>
+                        <img src={`${process.env.REACT_APP_APIURL}/img/exercises/${id}.png`}/>
                     </div> 
                     <div className="exerciseTip">
                         <ul>

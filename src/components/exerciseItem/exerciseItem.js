@@ -5,7 +5,6 @@ import "./exerciseItem.css"
 import {GiBiceps} from "react-icons/gi"
 import {MdFitnessCenter} from "react-icons/md" 
 import {BiCheckCircle} from "react-icons/bi"
-import { apiURL } from "../../definitions";
 
 const ExerciseItem = ({exercise})=>{
     return(
@@ -16,7 +15,7 @@ const ExerciseItem = ({exercise})=>{
             
             <div className="exerciseItemImage">
                 <Link to={`${exercise._id}`}>
-                    <img src={`${apiURL}/img/exercises/${exercise._id}.png`}/>
+                    <img src={`${process.env.REACT_APP_APIURL}/img/exercises/${exercise._id}.png`}/>
                 </Link> 
             </div>
             

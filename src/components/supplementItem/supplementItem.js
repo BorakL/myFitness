@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import "./supplementItem.css"
 import { Link } from "react-router-dom";
 import CartContext from "../../context/cartContext";
-import { apiURL } from "../../definitions";
 
 const SupplementItem = ({supplement})=>{
     const weight = `${supplement.weight.weight}${supplement.weight.measure}`
@@ -12,7 +11,7 @@ const SupplementItem = ({supplement})=>{
         <div className="supplementItem">
             <div className="image">
                 <Link to={`${supplement._id}`}>
-                    <img src={`${apiURL}/img/supplements/${supplement._id}.jpg`} alt="supplement"/>
+                    <img src={`${process.env.REACT_APP_APIURL}/img/supplements/${supplement._id}.jpg`} alt="supplement"/>
                 </Link>
             </div>
             <div className="info">

@@ -4,7 +4,6 @@ import ExerciseItemWorkout from "../../components/exerciseItemWorkout/exerciseIt
 import { create, getOne } from "../../services";
 import dateFormat from "dateformat";
 import "./workout.css";
-import { apiURL } from "../../definitions";
 import Reviews from "../../components/reviews/reviews";
 
 const Workout = ()=>{
@@ -68,7 +67,7 @@ const Workout = ()=>{
                         </div>
                     </div>
                     <div className="workoutImage">
-                        {workout.id && <img src={`${apiURL}/img/workouts/${workout.id}.jpg`}/>}
+                        {workout.id && <img src={`${process.env.REACT_APP_APIURL}/img/workouts/${workout.id}.jpg`}/>}
                     </div>
                     <div className="workoutShortDescription">
                         <p>{workout.shortDescription}</p>

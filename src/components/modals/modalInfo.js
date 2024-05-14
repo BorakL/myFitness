@@ -1,6 +1,5 @@
 import React from "react";
 import "./modal.css"
-import { apiURL } from "../../definitions";
 import { GrClose } from "react-icons/gr";
 
 const ModalInfo = ({onClose, title, img, info})=>{
@@ -13,7 +12,7 @@ const ModalInfo = ({onClose, title, img, info})=>{
                     {
                         img &&
                         <div>
-                            <img src={`${apiURL}/img/${img}`}/>
+                            <img src={`${process.env.REACT_APP_APIURL}/img/${img}`}/>
                         </div>
                     }
                     <div>{info}</div>

@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { apiURL } from './definitions';
 
-axios.defaults.baseURL = `${apiURL}/api/v1/`;
+axios.defaults.baseURL = `${process.env.REACT_APP_APIURL}/api/v1/`;
 
 export const getOne = function ({service,id,headers,options}){
   return axios({
