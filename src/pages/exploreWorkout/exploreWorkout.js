@@ -34,6 +34,7 @@ const ExploreWorkout = ({scrollParentRef})=>{
             setLoading(false)
             if(offset===0){setTotal(workoutsData.data.total)}
         }catch(error){
+            setLoading(false)
             console.log("error",error)
         }
     }

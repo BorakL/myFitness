@@ -34,6 +34,7 @@ const ExploreExercise = ({scrollParentRef})=>{
             setInitialLoading(false)
             setLoading(false)
         }catch(error){
+            setLoading(false)
             console.log("error",error)    
         } 
     } 

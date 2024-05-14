@@ -25,7 +25,7 @@ const Home = ()=>{
         <div className="homePage">
             <div className="frontHero" style={{backgroundImage:"url('/cover.jpg')"}}>
                 <div className="overlay">
-                    <h1>MyFitness</h1>
+                    <h1>LBFitness</h1>
                     <p>We offer a free workouts created by fitness experts, suitable for any goal or experience level.</p>
                     <p>Our comprehensive videos and instructions show you how to perform exercises using correct technique for the best results.</p>
                 </div>

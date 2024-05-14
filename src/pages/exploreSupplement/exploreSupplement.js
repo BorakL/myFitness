@@ -36,6 +36,7 @@ const ExploreSupplement = ({scrollParentRef})=>{
             setLoading(false)
             if(offset===0){setTotal(supplementsData.data.total)}
         }catch(error){
+            setLoading(false)
             console.log("error",error)
         }
     }  

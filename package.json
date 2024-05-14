@@ -1,5 +1,5 @@
 {
-  "name": "myFitness",
+  "name": "lbfitness",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -46,5 +46,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://myfitness.cyclic.app"
+  "homepage": "http://lbfitness.cyclic.app"
 }

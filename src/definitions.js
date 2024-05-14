@@ -1,37 +1,37 @@
 exports.apiURL = "https://my-fitness-api.vercel.app/"
 // exports.apiURL = ""
 
-exports.goalOptions = [
+export const goalOptions = [
     {value:"Build Muscle", name:"Build Muscle"},
     {value:"Burn Fat", name:"Burn Fat"},
     {value:"Increase Strength", name:"Increase Strength"},
     {value:"Healthy Lifestyle", name:"Healthy Lifestyle"}
 ]
 
-exports.genderOptions = [
+export const genderOptions = [
     {value:"Male", name:"Male"},
     {value:"Female", name:"Female"}
 ]
 
-exports.trainingExpirienceOptions = [
+export const trainingExpirienceOptions = [
     {value:1, name:"Begginer (< 1 Year)"},
     {value:2, name:"Intermediate (1-3 Years)"},
     {value:3, name:"Advanced (3+ Years)"}
 ]
 
-exports.paymentMethods = [
+export const paymentMethods = [
     // {value: "Payment Card", name: "Payment Card"},
     {value: "Cash on delivery", name: "Cash on delivery"}
 ]
 
-exports.sortSupplementsOptions = [
+export const sortSupplementsOptions = [
     {value: "name", name: "Name ASC"},
     {value: "-name", name: "Name DESC"},
     {value: "price", name: "Price ASC"},
     {value: "-price", name: "Price DESC"}
 ]
 
-exports.countries = [ 
+export const countries = [ 
     {"name": "Afghanistan", "value": "AF"}, 
     {"name": "land Islands", "value": "AX"}, 
     {"name": "Albania", "value": "AL"}, 
