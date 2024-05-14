@@ -4,7 +4,6 @@ import { getAll, getOne } from "../../services";
 import textFormating from "../../utilies";
 import {v4 as uuidv4} from "uuid"
 import "./exercise.css"
-import { process.env.REACT_APP_APIURL } from "../../definitions";
 
 const Exercise = ()=>{
     const[exercise,setExercise] = useState({});
